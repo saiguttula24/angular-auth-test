@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { getAuth, signOut } from 'firebase/auth';
 import { AuthenticationService } from '../auth-service.service'
 
 @Component({
@@ -15,8 +16,18 @@ export class HomeComponent implements OnInit {
   }
 
   onClickLogout() {
-      this.authService.logout();
-      this.router.navigate(['/login']);
+      this.authService.logout().subscribe(()=>{
+        this.router.navigate(['/login'])
+      }
+      );
+      const auth = getAuth();
+      signOut(auth).then(() => {
+        this.router.navigate(['/login']);
+      }).catch((error) => {
+        // An error happened.
+      });
+      
+
   }
 
 

@@ -16,5 +16,8 @@
         </div> 
           <button class="btn btn-primary my-2" (click)="onClickLogin(userName.value,password.value)">Login</button>
           <p>Dont have an account <a routerLink="/signup">Signup</a></p>
+          <mat-card class="d-flex flex-row justify-content-center align-items-center">
+            <button (click)="onClickGoogleLogin()" style="border: 0px; cursor: pointer; background-color:transparent;">Sign In with <b>GOOGLE</b><img style="width: 20px; padding-left: 5px;" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="google-img"></button>
+          </mat-card>
     </mat-card>
 </div>

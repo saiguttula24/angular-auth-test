@@ -10,11 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { environment } from 'src/environments/environment';
 import { provideAuth, } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
