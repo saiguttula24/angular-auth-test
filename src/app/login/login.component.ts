@@ -37,6 +37,7 @@ signInWithPopup(auth, this.provider)
     this.user = result.user;
     //console.log(user);
     this.router.navigate(['/home']);
+    this.authService.getUser.emit(this.user);
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;

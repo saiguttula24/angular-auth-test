@@ -8,8 +8,18 @@ import { from } from 'rxjs';
 })
 export class AuthenticationService {
 
+  user:any;
 
-  constructor(private auth:Auth) { }
+  getUser = new EventEmitter<any>();
+
+  constructor(private auth:Auth) {
+    this.getUser.subscribe(
+      (user:any) => {
+        this.user = user;
+        console.log(user.displayName);
+      } 
+    )
+   }
 
   login(username:string,password:string){
     return from(signInWithEmailAndPassword(this.auth,username,password));
