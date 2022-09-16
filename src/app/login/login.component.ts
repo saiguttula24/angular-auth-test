@@ -34,8 +34,8 @@ signInWithPopup(auth, this.provider)
     let a:any;
     a = credential
     const token = a.accessToken;
-    const user = result.user;
-    console.log(user);
+    this.user = result.user;
+    //console.log(user);
     this.router.navigate(['/home']);
   }).catch((error) => {
     const errorCode = error.code;
