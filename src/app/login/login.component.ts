@@ -21,9 +21,16 @@ export class LoginComponent implements OnInit {
   }
 
   onClickLogin(userName:string,password:string){
-    this.authService.login(userName,password).subscribe(()=>{
+    this.authService.login(userName,password).subscribe(res=>{
+      console.log(res.user.email);
       this.router.navigate(['/home']);
-    });
+      this.user = res.user.email;
+      this.authService.getEmail.emit(this.user);
+    },
+    err => {
+      alert('Invalid Credentials');
+    }
+    );
   }
 
   onClickGoogleLogin(){
