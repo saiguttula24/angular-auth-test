@@ -21,8 +21,9 @@ export class SignupComponent implements OnInit {
         alert("Signup Successful");
       },
       err => {
-        alert("Sorry, Request failed");
-      }
+        if(err.code=='auth/email-already-in-use'){
+          alert("You are already registered. Please signin.");
+      }}
     )
   }
 
